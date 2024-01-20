@@ -66,14 +66,19 @@ function App() {
         {
           text,
           projectId: prevState.selectedProjectId,
-          id: Math.random()
+          id: Math.random(),
         },
         ...prevState.tasks,
       ],
     }));
   };
 
-  const handleDeleteTask = () => {};
+  const handleDeleteTask = (id) => {
+    setProjectsState((prevState) => ({
+      ...prevState,
+      tasks: prevState.tasks.filter((task) => task.id !== id),
+    }));
+  };
 
   let content = (
     <Details
